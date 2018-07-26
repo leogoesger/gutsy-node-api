@@ -2,31 +2,31 @@
 import { QueryInterface, DataTypes } from "sequelize";
 
 module.exports = {
-    up: (queryInterface: QueryInterface, dataType: DataTypes) => {
+    up: (queryInterface: QueryInterface, dataTypes: DataTypes) => {
         return queryInterface.createTable("Location", {
             id: {
                 allowNull: false,
                 autoIncrement: true,
                 primaryKey: true,
-                type: dataType.INTEGER,
+                type: dataTypes.INTEGER,
             },
             name: {
-                type: dataType.TEXT,
+                type: dataTypes.TEXT,
                 allowNull: false,
             },
             open: {
-                type: dataType.BOOLEAN,
+                type: dataTypes.BOOLEAN,
                 defaultValue: true,
                 allowNull: false,
             },
             description: {
-                type: dataType.TEXT,
+                type: dataTypes.TEXT,
             },
             geoCode: {
-                type: dataType.TEXT,
+                type: dataTypes.TEXT,
             },
             type: {
-                type: dataType.ENUM,
+                type: dataTypes.ENUM,
                 allowNull: false,
                 values: [
                     "COUNTRY",
@@ -38,27 +38,27 @@ module.exports = {
                 ],
             },
             countryId: {
-                type: dataType.INTEGER,
+                type: dataTypes.INTEGER,
             },
             stateId: {
-                type: dataType.INTEGER,
+                type: dataTypes.INTEGER,
             },
             regionId: {
-                type: dataType.INTEGER,
+                type: dataTypes.INTEGER,
             },
             placeId: {
-                type: dataType.INTEGER,
+                type: dataTypes.INTEGER,
             },
             areaId: {
-                type: dataType.INTEGER,
+                type: dataTypes.INTEGER,
             },
             createdAt: {
                 allowNull: false,
-                type: dataType.DATE,
+                type: dataTypes.DATE,
             },
             updatedAt: {
                 allowNull: false,
-                type: dataType.DATE,
+                type: dataTypes.DATE,
             },
         });
     },

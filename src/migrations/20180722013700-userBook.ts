@@ -3,22 +3,20 @@ import { QueryInterface, DataTypes } from "sequelize";
 
 module.exports = {
     up: (queryInterface: QueryInterface, dataTypes: DataTypes) => {
-        return queryInterface.createTable("Author", {
+        return queryInterface.createTable("UserBook", {
             id: {
                 allowNull: false,
                 autoIncrement: true,
                 primaryKey: true,
                 type: dataTypes.INTEGER,
             },
-            firstName: {
-                type: dataTypes.TEXT,
+            userId: {
+                type: dataTypes.INTEGER,
                 allowNull: false,
             },
-            lastName: {
-                type: dataTypes.TEXT,
-            },
-            email: {
-                type: dataTypes.TEXT,
+            bookId: {
+                type: dataTypes.INTEGER,
+                allowNull: false,
             },
             createdAt: {
                 allowNull: false,
@@ -31,6 +29,6 @@ module.exports = {
         });
     },
     down: (queryInterface: any) => {
-        return queryInterface.dropTable("Author");
+        return queryInterface.dropTable("UserBook");
     },
 };

@@ -3,22 +3,24 @@ import { QueryInterface, DataTypes } from "sequelize";
 
 module.exports = {
     up: (queryInterface: QueryInterface, dataTypes: DataTypes) => {
-        return queryInterface.createTable("Author", {
+        return queryInterface.createTable("UserClimb", {
             id: {
                 allowNull: false,
                 autoIncrement: true,
                 primaryKey: true,
                 type: dataTypes.INTEGER,
             },
-            firstName: {
-                type: dataTypes.TEXT,
+            status: {
+                type: dataTypes.ENUM,
+                values: ["TODO", "PROGRESS", "COMPLETE"],
+            },
+            userId: {
+                type: dataTypes.INTEGER,
                 allowNull: false,
             },
-            lastName: {
-                type: dataTypes.TEXT,
-            },
-            email: {
-                type: dataTypes.TEXT,
+            climbId: {
+                type: dataTypes.INTEGER,
+                allowNull: false,
             },
             createdAt: {
                 allowNull: false,
@@ -31,6 +33,6 @@ module.exports = {
         });
     },
     down: (queryInterface: any) => {
-        return queryInterface.dropTable("Author");
+        return queryInterface.dropTable("UserClimb");
     },
 };

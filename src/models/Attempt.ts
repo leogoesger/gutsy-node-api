@@ -13,8 +13,6 @@ import { UserClimb } from "./";
 
 @Table
 class Attempt extends Model<Attempt> {
-    @Column public date: Date;
-
     @Column(DataType.ENUM(["SUCCESS", "FAIL"]))
     public status: "SUCCESS" | "FAIL";
 
