@@ -1,12 +1,11 @@
-import { GraphQLObjectType } from "graphql";
+import BookQueries from "./book/queries";
+import ClimbQueries from "./climb/queries";
+import LocationQueries from "./location/queries";
 
-import locationQueries from "./location/queries";
+const Query = {
+    ...BookQueries,
+    ...ClimbQueries,
+    ...LocationQueries,
+};
 
-const RootQuery = new GraphQLObjectType({
-    name: "RootQueryType",
-    fields: () => ({
-        ...locationQueries,
-    }),
-});
-
-export default RootQuery;
+export default Query as any;

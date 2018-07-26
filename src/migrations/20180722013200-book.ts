@@ -14,11 +14,19 @@ module.exports = {
                 type: dataTypes.TEXT,
                 allowNull: false,
             },
+            description: {
+                type: dataTypes.TEXT,
+            },
             open: {
                 type: dataTypes.BOOLEAN,
             },
             publishedDate: {
                 type: dataTypes.DATE,
+            },
+            available: {
+                type: dataTypes.BOOLEAN,
+                allowNull: false,
+                defaultValue: true,
             },
             createdAt: {
                 allowNull: false,
