@@ -2,63 +2,34 @@
 import { QueryInterface, DataTypes } from "sequelize";
 
 module.exports = {
-    up: (queryInterface: QueryInterface, dataType: DataTypes) => {
-        return queryInterface.createTable("User", {
+    up: (queryInterface: QueryInterface, dataTypes: DataTypes) => {
+        return queryInterface.createTable("Attempt", {
             id: {
                 allowNull: false,
                 autoIncrement: true,
                 primaryKey: true,
-                type: dataType.INTEGER,
+                type: dataTypes.INTEGER,
             },
-            firstName: {
-                type: dataType.TEXT,
+            status: {
+                type: dataTypes.ENUM,
+                values: ["TODO", "PROGRESS", "COMPLETE"],
+            },
+            userClimbId: {
+                type: dataTypes.INTEGER,
                 allowNull: false,
             },
-            lastName: {
-                type: dataType.TEXT,
-                allowNull: false,
-            },
-            email: {
-                type: dataType.TEXT,
-                allowNull: false,
-                unique: true,
-            },
-            password: {
-                type: dataType.TEXT,
-                allowNull: false,
-            },
-            sex: {
-                type: dataType.ENUM,
-                values: ["MALE", "FEMALE", "OTHER"],
-                allowNull: true,
-            },
-            birth: {
-                type: dataType.DATE,
-                allowNull: false,
-            },
-            height: {
-                type: dataType.TEXT,
-                allowNull: false,
-            },
-            apIndex: {
-                type: dataType.FLOAT,
-                allowNull: false,
-            },
-            startDate: {
-                type: dataType.DATE,
-                allowNull: false,
-            },
+
             createdAt: {
                 allowNull: false,
-                type: dataType.DATE,
+                type: dataTypes.DATE,
             },
             updatedAt: {
                 allowNull: false,
-                type: dataType.DATE,
+                type: dataTypes.DATE,
             },
         });
     },
     down: (queryInterface: any) => {
-        return queryInterface.dropTable("User");
+        return queryInterface.dropTable("Attempt");
     },
 };
